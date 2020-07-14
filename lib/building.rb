@@ -16,4 +16,13 @@ class Building
     end
     @renter_names
   end
+
+  def average_rent
+    avg_rent = 0
+    units.each do |unit|
+      avg_rent += unit.monthly_rent
+    end
+    avg_rent = (avg_rent.to_f / units.size.to_f)
+    avg_rent
+  end
 end

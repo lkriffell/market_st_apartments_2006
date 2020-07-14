@@ -34,6 +34,7 @@ class BuildingTest < Minitest::Test
     unit2.add_renter(renter2)
 
     assert_equal ["Aurora", "Tim"], building.renters
+    assert_equal 1099.5 , building.average_rent
   end
 
 

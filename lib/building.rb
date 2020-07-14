@@ -25,4 +25,14 @@ class Building
     avg_rent = (avg_rent.to_f / units.size.to_f)
     avg_rent
   end
+
+  def rented_units
+    units_rented = []
+    units.each do |unit|
+      if unit.renter != nil
+        units_rented << unit
+      end
+    end
+    units_rented
+  end
 end

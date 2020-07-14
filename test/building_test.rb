@@ -55,9 +55,7 @@ class BuildingTest < Minitest::Test
     unit1.add_renter(renter2)
     renter3 = Renter.new("Max")
     unit3.add_renter(renter3)
-    building.renter_with_highest_rent
-
-    assert_equal [unit1.renter], building.renter_with_highest_rent
+    assert_equal "Jessie", building.renter_with_highest_rent
   end
 
   def test_units_by_number_of_bedrooms

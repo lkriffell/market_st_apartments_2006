@@ -32,15 +32,17 @@ class Building
     end
   end
 
-  # def renter_with_highest_rent
-  #   previous = 0
-  #   rented_units.each do |unit|
-  #     require "pry"; binding.pry
-  #     if unit.monthly_rent > previous
-  #       previous == unit.monthly_rent
-  #     end
-  #   end
-  # end
+  def renter_with_highest_rent
+    monthly_rents = []
+    units.each do |unit|
+      monthly_rents << unit.monthly_rent
+    end
+    units.each do |unit|
+      if unit.monthly_rent == monthly_rents.max
+        return unit.renter.name
+      end
+    end
+  end
 
   def units_by_number_of_bedrooms
     units_by_beds = {}
@@ -51,7 +53,6 @@ class Building
         units_by_beds[unit.bedrooms] << unit.number
       end
     end
-    require "pry"; binding.pry
-    units_by_beds.reverse
+    units_by_beds
   end
 end

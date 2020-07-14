@@ -63,4 +63,12 @@ class Building
     end
     breakdown
   end
+
+  def rooms_by_renter
+    renter_rooms = {}
+    rented_units.each do |unit|
+      renter_rooms[unit.renter.name] = {bathrooms: unit.bathrooms, bedrooms: unit.bedrooms}
+    end
+    renter_rooms
+  end
 end
